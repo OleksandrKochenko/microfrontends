@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "webpack serve",
+    "start": "webpack serve --port 9102",
     "start:standalone": "webpack serve --env standalone",
     "build": "pnpm run type-check && webpack --mode=production",
     "build:tar": "tar -czvf ./react-mf-vendor.tar.gz ./package.json -C dist ./react-mf-vendor.js",
