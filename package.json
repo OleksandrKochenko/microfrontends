@@ -1,0 +1,41 @@
+{
+  "name": "microfrontends",
+  "version": "1.0.0",
+  "description": "Micro-frontend repo",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "workspaces": [
+    "packages/navbar",
+    "packages/requisition",
+    "packages/vendor"
+  ],
+  "scripts": {
+    "bootstrap": "npm ci",
+    "build": "tsc -b packages/* && npm run build --ws",
+    "build:tar": "npm run build:tar --ws",
+    "lint": "npm run lint --ws",
+    "lint:fix": "npm run lint:fix --ws",
+    "pre-commit": "lint-staged && npm run pre-commit --ws && npm run test --ws",
+    "prepare": "husky install",
+    "pretty:fix": "npm run pretty:fix --ws",
+    "test": "npm run test --ws"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
+    "history": "^5.3.0",
+    "husky": "^7.0.4",
+    "sort-package-json": "^2.0.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3",
+    "webpack": "^5.71.0"
+  }
+}

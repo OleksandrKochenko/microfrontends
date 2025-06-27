@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "strict": true,
+    "composite": true,
+    "incremental": true
+  },
+  "include": ["packages/*"],
+  "references": [
+    { "path": "packages/navbar" },
+    { "path": "packages/requisition" },
+    { "path": "packages/vendor" }
+  ]
+}

@@ -1,0 +1,1 @@
+# React vendor micro-frontend
