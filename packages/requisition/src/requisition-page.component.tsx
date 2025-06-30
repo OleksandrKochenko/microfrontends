@@ -14,9 +14,9 @@ type State = {
 };
 
 type Action =
-| { type: "loadingRequisitions" }
-| { type: "selectRequisition"; requisition: Requisition }
-| { type: "newRequisitions"; data: Requisition[] };
+  | { type: "loadingRequisitions" }
+  | { type: "selectRequisition"; requisition: Requisition }
+  | { type: "newRequisitions"; data: Requisition[] };
 
 const initialState: State = {
   loadingRequisitions: true,
@@ -58,7 +58,7 @@ export default function RequisitionPage(_props: Record<string, unknown>) {
       <div className="flex">
         <div className="p-6 w-1/3">
           {loadingRequisitions && requisitions.length === 0 ? (
-            <div>Loading ...</div>
+            <div>Loading requisitions...</div>
           ) : (
             requisitions.map((requisition) => (
               <Link
@@ -84,7 +84,7 @@ export default function RequisitionPage(_props: Record<string, unknown>) {
               </div>
             </div>
           ) : (
-            <div>No one selected</div>
+            <div>No one requisition selected</div>
           )}
         </div>
       </div>
@@ -99,7 +99,11 @@ function reducer(state: State, action: Action): State {
     case "selectRequisition":
       return { ...state, selectedRequisition: action.requisition };
     case "newRequisitions":
-      return { ...state, requisitions: action.data, loadingRequisitions: false };
+      return {
+        ...state,
+        requisitions: action.data,
+        loadingRequisitions: false,
+      };
     default:
       throw new Error(`Unknown action type '${(action as any).type}'`);
   }

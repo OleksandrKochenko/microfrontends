@@ -1,14 +1,16 @@
+import React from "react";
 import { NavLink } from "./root.helper";
 import { Link, BrowserRouter } from "react-router-dom";
 
-export default function Root(props: Record<string, unknown>) {
-  const navLinks = props.navbarRoutes as NavLink[];
+export default function Root(props: { navbarRoutes: NavLink[] }) {
+  const links = props.navbarRoutes;
+  console.log("props", props);
 
   return (
     <BrowserRouter>
       <div className="h-16 flex items-center justify-between px-6 bg-primary text-white">
         <div className="flex items-center justify-between">
-          {navLinks.map((link: NavLink) => (
+          {links.map((link: NavLink) => (
             <Link key={link.href} className="p-6" to={link.href}>
               {link.name}
             </Link>
